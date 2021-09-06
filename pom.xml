@@ -18,9 +18,19 @@
         <module>cloudnet-common</module>
     </modules>
     <properties>
+        <alibaba-fastjson.version>1.2.60</alibaba-fastjson.version>
+        <google.guave.version>28.1-jre</google.guave.version>
         <java.version>1.8</java.version>
         <swagger2.version>2.9.2</swagger2.version>
         <swagger-annotations.version>1.5.20</swagger-annotations.version>
+        <hadoop.version>2.7.0</hadoop.version>
+        <hbase-client.version>2.0.1</hbase-client.version>
+        <scala.version>2.10.4</scala.version>
+        <spark.version>1.6.2</spark.version>
+        <client-java.version>11.0.0</client-java.version>
+        <kubernetes-client.version>5.7.0</kubernetes-client.version>
+        <kubernetes-api.version>3.0.12</kubernetes-api.version>
+        <hutool.version>5.0.4</hutool.version>
     </properties>
     <dependencies>
         <dependency>
@@ -61,6 +71,41 @@
                 <artifactId>springfox-swagger-ui</artifactId>
                 <version>${swagger2.version}</version>
             </dependency>
+            <!--k8s-java-client-->
+            <dependency>
+                <groupId>io.kubernetes</groupId>
+                <artifactId>client-java</artifactId>
+                <version>${client-java.version}</version>
+                <scope>compile</scope>
+            </dependency>
+            <!--k8s-fabric8-java-->
+            <dependency>
+                <groupId>io.fabric8</groupId>
+                <artifactId>kubernetes-client</artifactId>
+                <version>${kubernetes-client.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.fabric8</groupId>
+                <artifactId>kubernetes-api</artifactId>
+                <version>${kubernetes-api.version}</version>
+            </dependency>
+            <!--工具包-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${alibaba-fastjson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${google.guave.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+            <!--工具包结束-->
         </dependencies>
     </dependencyManagement>
 </project>

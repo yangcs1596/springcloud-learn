@@ -33,6 +33,18 @@
             <artifactId>safedog-cloud-starter-swagger-ui</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.safedog.cloudnet</groupId>
+            <artifactId>cloud-starter-hadoop</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <!--k8s操作工具-->
+        <!--k8s-java-client-->
+        <dependency>
+            <groupId>com.safedog.cloudnet</groupId>
+            <artifactId>cloud-starter-kubernetes</artifactId>
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
 
     <build>

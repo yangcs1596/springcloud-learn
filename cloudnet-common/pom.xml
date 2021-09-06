@@ -13,6 +13,9 @@
     <modules>
         <module>cloudnet-common-core</module>
         <module>safedog-cloud-starter-swagger-ui</module>
+        <module>cloud-starter-spark</module>
+        <module>cloud-starter-hadoop</module>
+        <module>cloud-starter-kubernetes</module>
     </modules>
 
     <build>
