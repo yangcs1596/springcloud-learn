@@ -45,7 +45,7 @@ public class SwaggerApiDescriptionAutoConfiguration {
     }
 
     @Bean
-    @ConditionalOnProperty(prefix = "swagger.api-description", name = "enable", havingValue = "true", matchIfMissing = true)
+    @ConditionalOnProperty(prefix = "swagger", name = "enable", havingValue = "true", matchIfMissing = true)
     public FilterRegistrationBean<CorsFilter> corsFilterRegistrationBean() {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         CorsConfiguration config = new CorsConfiguration();

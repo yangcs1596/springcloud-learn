@@ -16,6 +16,7 @@
         <module>cloud-starter-spark</module>
         <module>cloud-starter-hadoop</module>
         <module>cloud-starter-kubernetes</module>
+        <module>cloud-stater-mybatis-plus</module>
     </modules>
 
     <build>

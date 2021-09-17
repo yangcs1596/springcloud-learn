@@ -1,0 +1,79 @@
+server:
+  port: 8080
+  servlet:
+    encoding:
+      charset: UTF-8
+
+
+# DataSource Config
+# 多数据源
+spring:
+  datasource:
+    mysql:
+      name: mysql
+      driver-class-name: com.mysql.jdbc.Driver
+      jdbc-url: jdbc:mysql://localhost:3306/cloud_system?userUnicode=true$characterEncoding=utf-8&useSSL=false
+      username: root
+      password: root
+    phoenix:
+      name: phoenix
+      driver-class-name: org.apache.phoenix.jdbc.PhoenixDriver
+      #zookeeper地址
+      jdbc-url: jdbc:phoenix:hdfs1.safedog.cn:2181;serializa‌​tion=PROTOBUF
+      # username: hive
+      # password: hive@123
+    # spring-boot 2.X 默认采用高性能的 Hikari 作为连接池
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      # 池中维护的最小空闲连接数
+      minimum-idle: 10
+      # 池中最大连接数，包括闲置和使用中的连接
+      maximum-pool-size: 20
+      retries: 5
+      # 此属性控制从池返回的连接的默认自动提交行为。默认为 true
+      auto-commit: true
+      # 允许最长空闲时间
+      idle-timeout: 30000
+      # 此属性表示连接池的用户定义名称，主要显示在日志记录和 JMX 管理控制台中，以标识池和池配置。 默认值：自动生成
+      pool-name: custom-hikari
+      #此属性控制池中连接的最长生命周期，值 0 表示无限生命周期，默认 1800000 即 30 分钟
+      max-lifetime: 1800000
+      # 数据库连接超时时间,默认 30 秒，即 30000
+      connection-timeout: 30000
+      # 连接测试 sql 这个地方需要根据数据库方言差异而配置 例如 oracle 就应该写成  select 1 from dual
+      connection-test-query: SELECT 1
+
+swagger:
+  enable: true
+  api-description:
+    title: swagger 文档说明
+    description: 不知道怎么描述
+
+#name-node
+hadoop:
+  enable: true
+#  name-node: hdfs://192.168.88.89:9000
+  name-node: hdfs://hdfs1.safedog.cn:9000
+  namespace: /data #hdfs目录
+zookeeper:
+  address: 192.168.89.246:2181
+hbase:
+  zookeeper:
+    quorum: 192.168.89.246:2181
+#本来spring可用，怎么和mybatis的单应用结合
+#hbase:
+#  phoenix:
+#    datasource:
+#      driverClassName: org.apache.phoenix.jdbc.PhoenixDriver
+#      url: jdbc:phoenix:192.168.89.246:2181
+
+k8s:
+  api-http: https://192.168.88.241:6443
+  token: eyJhbGciOiJSUzI1NiIsImtpZCI6IkthWnpkNFVnX1Z5SklCLW9ERVc0ZUV6bzFIc29Ldm81YXZkQ1I2Wk5zUjQifQ.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJzYWZlZG9nIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZWNyZXQubmFtZSI6InNhZmVkb2ctdG9rZW4tMncybmciLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC5uYW1lIjoic2FmZWRvZyIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VydmljZS1hY2NvdW50LnVpZCI6IjQ2ODYzYTNkLTA4NzYtNGFiNy05ODMyLTk2MTM1NWRjZjRkOCIsInN1YiI6InN5c3RlbTpzZXJ2aWNlYWNjb3VudDpzYWZlZG9nOnNhZmVkb2cifQ.NranBEIdREFRGErOWYPejJq5DBtlQxxvP2_PyrtBtjhcX-JsdfAT7w4d5931HivbUM-MpDjc-3WrvRImCCGWsPR8bJQ68A-bDbQFPwJP-4gCOhs9b9V-qmvGTSx_hYx2Yzp9Sc9L0CK6ld05TR22jujqyc6opGxwCONqxoYW5w3T1lJEvke53QNMz-Tq64z-ZtfzZ3ttJe7I7QTCi3axlieSL7GlMVx3rsgrgLJArfolyiPWnbt3OAvGT0zVog1RM6-alSWp5spkk6rTfx0A7TgUjzN5O8WBpcDdwgHWWN1HZiX15KJhO_60sR74Ibjo7QhHlKylcFwmfbALmw0MOA
+
+encrypt:
+  config:
+    enable: false  #key: #密钥应该在启动时放在参数里，或者放在env里
+    prefix: ENC(
+    suffix: )
+

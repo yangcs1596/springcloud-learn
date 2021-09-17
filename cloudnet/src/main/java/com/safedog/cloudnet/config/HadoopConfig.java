@@ -2,10 +2,8 @@ package com.safedog.cloudnet.config;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.hadoop.fs.FileSystem;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -42,11 +40,12 @@ public class HadoopConfig{
     public FileSystem createFs() throws Exception{
         //读取配置文件
         org.apache.hadoop.conf.Configuration conf = new org.apache.hadoop.conf.Configuration();
-
+        //这句不知道有没有必要
+//        conf.set("hadoop.home.dir", "D:\\hadoop\\hadoop-2.7.0");
         conf.set("fs.defaultFS", nameNode);
         conf.set("dfs.replication", "1");
         URI uri = new URI(nameNode.trim());
-        FileSystem fs = FileSystem.get(uri, conf,"root");
+        FileSystem fs = FileSystem.get(uri, conf,"mybk");
         log.info("fileSystem 加载了");
         System.out.println("fs.defaultFS: "+conf.get("fs.defaultFS"));
         return  fs;
