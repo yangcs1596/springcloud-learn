@@ -9,6 +9,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 public class CloudnetApplication {
 
     public static void main(String[] args) {
+        //windows启动需要知道
         System.setProperty("hadoop.home.dir", "D:\\hadoop\\hadoop-2.7.0");
         SpringApplication.run(CloudnetApplication.class, args);
     }

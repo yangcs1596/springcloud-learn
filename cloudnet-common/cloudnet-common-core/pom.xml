@@ -8,6 +8,7 @@
         <version>1.0.0-SNAPSHOT</version>
     </parent>
     <artifactId>cloudnet-common-core</artifactId>
+    <name>核心功能</name>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>

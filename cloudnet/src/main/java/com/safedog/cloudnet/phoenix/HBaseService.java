@@ -1,6 +1,6 @@
 package com.safedog.cloudnet.phoenix;
 
-import com.safedog.cloudnet.entity.SysUser;
+import com.safedog.cloudnet.entity.phoenix.SysUser;
 
 import java.util.List;
 

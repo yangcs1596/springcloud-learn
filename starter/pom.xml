@@ -8,17 +8,22 @@
         <version>1.0.0-SNAPSHOT</version>
     </parent>
     <groupId>com.safedog.cloudnet</groupId>
-    <artifactId>cloudnet-common</artifactId>
-    <name>通用统一管理</name>
+    <artifactId>starter</artifactId>
+    <name>统一处理starter</name>
     <packaging>pom</packaging>
+    <description>封装一些通用工具的starter</description>
+
     <modules>
-        <module>cloudnet-common-core</module>
-        <module>cloud-starter-swagger-ui</module>
-        <module>cloud-starter-spark</module>
-        <module>cloud-starter-hadoop</module>
-        <module>cloud-starter-kubernetes</module>
-        <module>cloud-stater-mybatis-plus</module>
+        <module>global-unified-dispose-starter</module>
     </modules>
+    <!--工具依赖-->
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
 
     <build>
         <plugins>
@@ -33,4 +38,5 @@
             </plugin>
         </plugins>
     </build>
+
 </project>

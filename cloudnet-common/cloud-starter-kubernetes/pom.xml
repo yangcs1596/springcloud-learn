@@ -8,7 +8,7 @@
         <version>1.0.0-SNAPSHOT</version>
     </parent>
     <artifactId>cloud-starter-kubernetes</artifactId>
-
+    <name>K8S连接api接口依赖包</name>
     <dependencies>
         <!--k8s-java-client-->
         <dependency>
@@ -17,6 +17,7 @@
             <version>${client-java.version}</version>
             <scope>compile</scope>
         </dependency>
+        <!--备注这是两个不同的依赖包，操作也不一样-->
         <!--k8s-fabric8-java-->
         <dependency>
             <groupId>io.fabric8</groupId>

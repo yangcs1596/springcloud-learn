@@ -9,7 +9,7 @@
     </parent>
     <groupId>com.safedog.cloudnet</groupId>
     <artifactId>cloudnet</artifactId>
-    <name>cloudnet</name>
+    <name>cloud后台管理</name>
     <description>云网</description>
 
     <dependencies>
@@ -30,7 +30,12 @@
         </dependency>
         <dependency>
             <groupId>com.safedog.cloudnet</groupId>
-            <artifactId>safedog-cloud-starter-swagger-ui</artifactId>
+            <artifactId>global-unified-dispose-starter</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.safedog.cloudnet</groupId>
+            <artifactId>cloud-starter-swagger-ui</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>

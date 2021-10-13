@@ -8,6 +8,7 @@
         <version>1.0.0-SNAPSHOT</version>
     </parent>
     <artifactId>cloud-starter-hadoop</artifactId>
+    <name>hadoop依赖提供包</name>
 
     <dependencies>
         <dependency>

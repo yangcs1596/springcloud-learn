@@ -4,17 +4,14 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.httpclient.URI;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.concurrent.Executor;
-import java.util.concurrent.ThreadPoolExecutor;
 
 @Slf4j
 @RestController
-@Api(value = "/v2/api-docs", tags = {"测试"}, description = "测试swagger类")
+@Api(tags = {"Api-测试"}, description = "测试swagger类")
 public class TestController {
 
     @GetMapping("test")
@@ -22,6 +19,7 @@ public class TestController {
     //正常业务时， 需要在category类里或者server层进行事务控制，控制层一般不进行业务控制的。
     //@Transactional(rollbackFor = Exception.class)
     //@RequestParam 接收页面中的请求的参数
+    @ResponseBody
     public String test(@ApiParam(value = "用户a", required = true)
                        @RequestParam(value = "userName") String a){
 

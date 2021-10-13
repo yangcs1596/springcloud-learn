@@ -1,6 +1,6 @@
 package com.safedog.cloudnet.phoenix.impl;
 
-import com.safedog.cloudnet.entity.SysUser;
+import com.safedog.cloudnet.entity.phoenix.SysUser;
 import com.safedog.cloudnet.mapper.phoenix.TestMapper;
 import com.safedog.cloudnet.phoenix.HBaseService;
 import org.mybatis.spring.SqlSessionTemplate;

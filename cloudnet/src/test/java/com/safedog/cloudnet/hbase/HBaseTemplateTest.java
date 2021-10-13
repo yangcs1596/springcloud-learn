@@ -1,6 +1,6 @@
 package com.safedog.cloudnet.hbase;
 
-import com.safedog.cloudnet.entity.SysUser;
+import com.safedog.cloudnet.entity.phoenix.SysUser;
 import com.safedog.cloudnet.mapper.phoenix.TestMapper;
 import com.safedog.cloudnet.phoenix.HBaseService;
 import com.safedog.cloudnet.service.SysUserService;
@@ -53,11 +53,12 @@ public class HBaseTemplateTest {
     }
 
     @Test
-    public void phoenixTest(){
+    public void phoenixTest() throws Exception{
 //        List<Object> objects = sqlSessionTemplate.selectList("select name from patch_scan_info limit 10;");
         List<SysUser> sysUsers = testMapper.queryAll();
         System.out.println(sysUsers);
     }
+
     @Test
     public void mysqlTest(){
         List<SysUser> sysUsers = sysUserService.test();

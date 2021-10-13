@@ -1,4 +1,4 @@
-package com.safedog.cloudnet.entity;
+package com.safedog.cloudnet.entity.phoenix;
 
 import lombok.Data;
 

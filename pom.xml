@@ -12,10 +12,12 @@
     <artifactId>safedog-cloud-net</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <description>springboot-template</description>
+    <name>父级依赖版本管理</name>
     <packaging>pom</packaging>
     <modules>
         <module>cloudnet</module>
         <module>cloudnet-common</module>
+        <module>starter</module>
     </modules>
     <properties>
         <alibaba-fastjson.version>1.2.60</alibaba-fastjson.version>
@@ -34,6 +36,10 @@
         <mybatis-plus.version>3.2.0</mybatis-plus.version>
         <mysql-connector.version>5.1.48</mysql-connector.version>
         <dynamic-datasource-spring-boot-starter.version>3.2.0</dynamic-datasource-spring-boot-starter.version>
+
+        <javaee-api.version>8.0</javaee-api.version>
+        <ribbon-core.version>2.7.17</ribbon-core.version>
+        <feign-core.version>10.4.0</feign-core.version>
     </properties>
     <dependencies>
         <dependency>
@@ -132,4 +138,42 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <!--可以自定义properties属性-->
+        </profile>
+        <profile>
+            <id>dev-tools</id>
+            <dependencies>
+                <dependency>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-devtools</artifactId>
+                    <scope>runtime</scope>
+                </dependency>
+                <dependency>
+                    <groupId>io.springfox</groupId>
+                    <artifactId>springfox-swagger-ui</artifactId>
+                    <scope>runtime</scope>
+                </dependency>
+            </dependencies>
+            <build>
+                <pluginManagement>
+                    <plugins>
+                        <plugin>
+                            <groupId>org.springframework.boot</groupId>
+                            <artifactId>spring-boot-maven-plugin</artifactId>
+                            <configuration>
+                                <arguments>
+                                    <argument>--logging.config=classpath:logback-dev.xml</argument>
+                                    <argument>--spring.devtools.livereload.enabled=false</argument>
+                                </arguments>
+                            </configuration>
+                        </plugin>
+                    </plugins>
+                </pluginManagement>
+            </build>
+        </profile>
+    </profiles>
 </project>

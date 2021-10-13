@@ -9,6 +9,7 @@
     </parent>
     <artifactId>cloud-stater-mybatis-plus</artifactId>
     <description>底层数据操作依赖</description>
+    <name>mybatis-plus启动依赖包</name>
 
     <dependencies>
         <dependency>
