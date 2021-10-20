@@ -25,6 +25,8 @@ import java.net.URI;
 public class HadoopConfig{
     @Value("${hadoop.name-node}")
     private String nameNode;
+    @Value("${hadoop.user-name}")
+    private String userName;
 
 
     /**
@@ -45,7 +47,7 @@ public class HadoopConfig{
         conf.set("fs.defaultFS", nameNode);
         conf.set("dfs.replication", "1");
         URI uri = new URI(nameNode.trim());
-        FileSystem fs = FileSystem.get(uri, conf,"mybk");
+        FileSystem fs = FileSystem.get(uri, conf,userName);
         log.info("fileSystem 加载了");
         System.out.println("fs.defaultFS: "+conf.get("fs.defaultFS"));
         return  fs;

@@ -2,7 +2,7 @@ package com.safedog.cloudnet.dispose.advice;
 
 import com.alibaba.fastjson.JSON;
 import com.safedog.cloudnet.dispose.properties.GlobalDefaultProperties;
-import com.safedog.cloudnet.dispose.model.Result;
+import com.safedog.cloudnet.dispose.model.ResultBody;
 import com.safedog.cloudnet.dispose.annotation.IgnoreResponseAdvice;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.PropertySource;
@@ -52,19 +52,19 @@ public class CommonResponseAdvice implements ResponseBodyAdvice<Object> {
         if (o == null) {
             // 当 o 返回类型为 string 并且为null会出现 java.lang.ClassCastException: Result cannot be cast to java.lang.String
             if (methodParameter.getParameterType().getName().equals("java.lang.String")) {
-                return JSON.toJSON(Result.ofSuccess()).toString();
+                return JSON.toJSON(ResultBody.ofSuccess()).toString();
             }
-            return Result.ofSuccess();
+            return ResultBody.ofSuccess();
         }
         // o is instanceof ConmmonResponse -> return o
-        if (o instanceof Result) {
-            return (Result<Object>) o;
+        if (o instanceof ResultBody) {
+            return o;
         }
         // string 特殊处理 java.lang.ClassCastException: Result cannot be cast to java.lang.String
         if (o instanceof String) {
-            return JSON.toJSON(Result.ofSuccess(o)).toString();
+            return JSON.toJSON(ResultBody.ofSuccess(o)).toString();
         }
-        return Result.ofSuccess(o);
+        return ResultBody.ofSuccess(o);
     }
 
     private Boolean filter(MethodParameter methodParameter) {

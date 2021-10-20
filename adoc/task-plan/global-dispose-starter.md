@@ -19,3 +19,14 @@ dispose:
 ```
 
 # 全局登录权限拦截starter
+描述：统一用户权限，登录校验等
+根据 authorization 登录返回token给前端，（或者api调用根据appId和 secret的数字签名加密）
+再根据token查询 用户角色的权限
+
+# 系统Redisson自动装配starter
+https://gitee.com/tumao2/hdw-dubbo/tree/master/hdw-common
+
+# 系统redis自动装配 starter
+
+# 系统rabbitmq自动装配starter
+

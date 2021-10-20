@@ -1,6 +1,6 @@
 package com.safedog.cloudnet;
 
-import lombok.RequiredArgsConstructor;
+import com.safedog.spark.service.WordCountService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,12 +12,17 @@ import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.core.env.Environment;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.Map;
+
 @SpringBootTest
-//@RunWith(SpringRunner.class)
+@RunWith(SpringRunner.class)
 public class CloudnetApplicationTests {
 
-//    @Autowired
+    @Autowired
     private Environment env;
+
+    @Autowired
+    private WordCountService wordCountService;
 
     @Test
     public void contextLoads() {
@@ -30,4 +35,9 @@ public class CloudnetApplicationTests {
         System.out.println(environment.getProperty("JAVA_HOME"));
     }
 
+    @Test
+    public void testSpark() throws Exception{
+        Map<String, Integer> run = wordCountService.run();
+        System.out.println(run);
+    }
 }

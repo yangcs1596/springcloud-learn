@@ -1,9 +1,7 @@
 package com.safedog.common.util.encryptor;
 
 import com.safedog.common.util.AESUtil;
-import lombok.NoArgsConstructor;
 
-@NoArgsConstructor
 public class DefaultEncryptor implements StringEncryptor{
 
     private String key;

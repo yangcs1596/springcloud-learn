@@ -1,0 +1,4 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.safedog.common.autoconfigure.swagger.SwaggerApiDescriptionAutoConfiguration,\
+  com.safedog.common.autoconfigure.mybatis.MybatisPlusConfigurationAutoConfiguration,\
+  com.safedog.common.autoconfigure.property.LocalEncryptablePropertiesBeanFactoryPostProcessorAutoConfig

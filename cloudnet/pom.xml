@@ -17,6 +17,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+        <!--引入aop-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -26,6 +31,16 @@
         <dependency>
             <groupId>com.safedog.cloudnet</groupId>
             <artifactId>cloudnet-common-core</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.safedog.cloudnet</groupId>
+            <artifactId>cloud-stater-redis-lock</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.safedog.cloudnet</groupId>
+            <artifactId>cloudnet-common-autoconfigure</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
@@ -46,6 +61,11 @@
         <dependency>
             <groupId>com.safedog.cloudnet</groupId>
             <artifactId>cloud-stater-mybatis-plus</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.safedog.cloudnet</groupId>
+            <artifactId>cloud-starter-spark</artifactId>
             <version>${project.version}</version>
         </dependency>
         <!--k8s操作工具-->

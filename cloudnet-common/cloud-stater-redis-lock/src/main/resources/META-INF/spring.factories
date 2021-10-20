@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.safedog.common.redis.config.RedisConfig,\
+  com.safedog.common.redis.config.lock.RedisLockAutoConfiguration

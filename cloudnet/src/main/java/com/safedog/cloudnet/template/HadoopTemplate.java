@@ -1,5 +1,7 @@
 package com.safedog.cloudnet.template;
 
+import com.safedog.common.BaseException;
+import com.safedog.common.constants.ErrorCode;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.apache.hadoop.fs.FileSystem;
@@ -129,6 +131,7 @@ public class HadoopTemplate {
             //    fileSystem.close();
         } catch (IOException e) {
             log.error("", e);
+            throw new BaseException(ErrorCode.ERROR, "上传失败" + e.getMessage());
         }
     }
 
@@ -176,6 +179,7 @@ public class HadoopTemplate {
             // fs.close();
         } catch (IOException e) {
             log.error("", e);
+            throw new BaseException(ErrorCode.ERROR, "下载失败");
         }
     }
 

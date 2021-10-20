@@ -1,4 +1,6 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.safedog.common.autoconfig.swagger.SwaggerApiDescriptionAutoConfiguration,\
-  com.safedog.common.autoconfig.property.LocalEncryptablePropertiesBeanFactoryPostProcessorAutoConfig,\
-  com.safedog.common.autoconfig.mybatis.MybatisPlusConfigurationAutoConfiguration
+#org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+#  com.safedog.common.autoconfigure.swagger.SwaggerApiDescriptionAutoConfiguration,\
+#  com.safedog.common.autoconfigure.property.LocalEncryptablePropertiesBeanFactoryPostProcessorAutoConfig,\
+#  com.safedog.common.autoconfigure.mybatis.MybatisPlusConfigurationAutoConfiguration
+
+# 自动注入统一移动到autoconfigure项目底下

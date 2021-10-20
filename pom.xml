@@ -25,10 +25,14 @@
         <java.version>1.8</java.version>
         <swagger2.version>2.9.2</swagger2.version>
         <swagger-annotations.version>1.5.20</swagger-annotations.version>
+        <!--hadoop-->
         <hadoop.version>2.7.0</hadoop.version>
         <hbase-client.version>2.0.1</hbase-client.version>
-        <scala.version>2.10.4</scala.version>
-        <spark.version>1.6.2</spark.version>
+        <!--spark-->
+        <spark-core.version>2.11</spark-core.version>
+        <scala.version>2.11.12</scala.version>
+        <spark.version>2.4.3</spark.version>
+        <!--k8s-->
         <client-java.version>11.0.0</client-java.version>
         <kubernetes-client.version>5.7.0</kubernetes-client.version>
         <kubernetes-api.version>3.0.12</kubernetes-api.version>
@@ -36,7 +40,7 @@
         <mybatis-plus.version>3.2.0</mybatis-plus.version>
         <mysql-connector.version>5.1.48</mysql-connector.version>
         <dynamic-datasource-spring-boot-starter.version>3.2.0</dynamic-datasource-spring-boot-starter.version>
-
+        <jsch.version>0.1.54</jsch.version>
         <javaee-api.version>8.0</javaee-api.version>
         <ribbon-core.version>2.7.17</ribbon-core.version>
         <feign-core.version>10.4.0</feign-core.version>
@@ -136,6 +140,14 @@
                 <artifactId>mysql-connector-java</artifactId>
                 <version>${mysql-connector.version}</version>
             </dependency>
+
+            <!--sftp-->
+            <dependency>
+                <groupId>com.jcraft</groupId>
+                <artifactId>jsch</artifactId>
+                <version>${jsch.version}</version>
+            </dependency>
+            <!--sftp结束-->
         </dependencies>
     </dependencyManagement>
 
@@ -152,11 +164,11 @@
                     <artifactId>spring-boot-devtools</artifactId>
                     <scope>runtime</scope>
                 </dependency>
-                <dependency>
-                    <groupId>io.springfox</groupId>
-                    <artifactId>springfox-swagger-ui</artifactId>
-                    <scope>runtime</scope>
-                </dependency>
+                <!--<dependency>-->
+                    <!--<groupId>io.springfox</groupId>-->
+                    <!--<artifactId>springfox-swagger-ui</artifactId>-->
+                    <!--<scope>runtime</scope>-->
+                <!--</dependency>-->
             </dependencies>
             <build>
                 <pluginManagement>

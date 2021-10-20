@@ -9,8 +9,10 @@ import javax.crypto.spec.SecretKeySpec;
 
 public class AESUtil {
     private static final String initVector = "encryptionIntVec";
-
+    //密文，由调用时传入,或者初始化时使用
+    private final String KEY = "";
     private static final String chart_encoding = CharEncoding.UTF_8;
+    private static final String ALGORITHMSTR = "AES/CBC/PKCS5PADDING";
     /**
      * 加密
      * @param value
@@ -22,7 +24,7 @@ public class AESUtil {
             IvParameterSpec iv = new IvParameterSpec(initVector.getBytes(chart_encoding));
             SecretKeySpec skeySpec = new SecretKeySpec(key.getBytes(chart_encoding), "AES");
 
-            Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5PADDING");
+            Cipher cipher = Cipher.getInstance(ALGORITHMSTR);
             cipher.init(Cipher.ENCRYPT_MODE, skeySpec, iv);
 
             byte[] encrypted = cipher.doFinal(value.getBytes());
@@ -43,7 +45,7 @@ public class AESUtil {
         try {
             IvParameterSpec iv = new IvParameterSpec(initVector.getBytes(chart_encoding));
             SecretKeySpec skeySpec = new SecretKeySpec(key.getBytes(chart_encoding), "AES");
-            Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5PADDING");
+            Cipher cipher = Cipher.getInstance(ALGORITHMSTR);
             cipher.init(Cipher.DECRYPT_MODE, skeySpec, iv);
             byte[] original = cipher.doFinal(Base64.decodeBase64(encrypted));
 
