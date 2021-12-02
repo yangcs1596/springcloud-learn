@@ -118,6 +118,10 @@ public class ResultBody<T> implements Serializable {
         return ofFail(resultEnum.getCode(), resultEnum.getMessage(), null);
     }
 
+    public static ResultBody ofFail(String msg) {
+        return ofFail(CommonErrorCode.ERROR.getCode(), msg, null);
+    }
+
     /**
      * 获取 json
      * @return json

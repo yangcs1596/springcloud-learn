@@ -1,12 +1,18 @@
 package com.safedog.common.mybatis;
 
+import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
+import com.baomidou.mybatisplus.core.metadata.TableFieldInfo;
+import com.baomidou.mybatisplus.core.metadata.TableInfo;
+import com.baomidou.mybatisplus.core.metadata.TableInfoHelper;
 import com.safedog.common.identity.IdGenerator;
 import com.safedog.common.web.RequestContext;
 import com.safedog.common.web.RequestInfo;
 import org.apache.ibatis.reflection.MetaObject;
 
 import java.util.Date;
+import java.util.Objects;
+import java.util.Optional;
 
 import static com.safedog.common.mybatis.entity.AbstractEntity.*;
 
@@ -16,6 +22,31 @@ import static com.safedog.common.mybatis.entity.AbstractEntity.*;
  * @author liuyadu
  */
 public class ModelMetaObjectHandler implements MetaObjectHandler {
+
+    /**
+     * 只根据是否是哪个注解
+     * @param fieldName
+     * @param fieldVal
+     * @param metaObject
+     * @param fieldFill
+     * @return
+     */
+    @Override
+    public boolean isFill(String fieldName, Object fieldVal, MetaObject metaObject, FieldFill fieldFill) {
+        TableInfo tableInfo = metaObject.hasGetter("MP_OPTLOCK_ET_ORIGINAL") ? TableInfoHelper.getTableInfo(metaObject.getValue("MP_OPTLOCK_ET_ORIGINAL").getClass()) : TableInfoHelper.getTableInfo(metaObject.getOriginalObject().getClass());
+        if (Objects.nonNull(tableInfo)) {
+            Optional<TableFieldInfo> first = tableInfo.getFieldList().stream().filter((e) -> {
+                return e.getProperty().equals(fieldName) && e.getPropertyType().isAssignableFrom(fieldVal.getClass());
+            }).findFirst();
+            if (first.isPresent()) {
+                FieldFill fill = ((TableFieldInfo)first.get()).getFieldFill();
+                return fill.equals(fieldFill) || FieldFill.INSERT_UPDATE.equals(fill);
+            }
+        }
+
+        return false;
+    }
+
 
     private final IdGenerator idGenerator;
 

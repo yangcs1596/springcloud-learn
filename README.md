@@ -12,11 +12,11 @@ springcloud项目学习实例
       ├──phoenix     phoenix的业务处理层
       ├──service     数据逻辑层transaction（不希望处理业务，分开，提供普通查询插入
       ├──biz         业务处理层
+       
       ├──template    服务模板
 ├──cloud-common 公共层
       ├──common-core  核心
 ```
-
 
 | 节点        | 角色说明                               |
 | ----------- | -------------------------------------- |
@@ -29,3 +29,20 @@ springcloud项目学习实例
 |1  |  2 |
 |---|----|
 |   |    |
+
+```
+├──项目结构说明
+├──project   项目层
+        ├──config      配置层(拦截器、过滤器)
+        ├──module      功能模块          
+              ├──controller  接口层（请求约束）
+              ├──biz         业务处理层（供接口层controller调用）             
+              ├──service     数据层（供业务层biz调用，增删查改）
+              ├──entity      实体层（与数据库表一一对应）
+              ├──mapper      数据接口层（与数据库处理，关联sql）
+              ├──manager     通用处理层
+              ├──dao         数据处理层
+              ├──api         服务调用（同接口层）
+├──cloud-common 公共层
+      ├──common-core  核心
+```

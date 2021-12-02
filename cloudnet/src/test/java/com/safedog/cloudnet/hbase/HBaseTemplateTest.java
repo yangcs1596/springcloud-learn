@@ -61,7 +61,7 @@ public class HBaseTemplateTest {
 
     @Test
     public void mysqlTest(){
-        List<SysUser> sysUsers = sysUserService.test();
+        List<com.safedog.cloudnet.entity.mysql.SysUser> sysUsers = sysUserService.test();
         System.out.println(sysUsers);
     }
 

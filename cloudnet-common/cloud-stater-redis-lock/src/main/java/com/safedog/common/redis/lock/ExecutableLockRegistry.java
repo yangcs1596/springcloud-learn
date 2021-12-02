@@ -5,7 +5,7 @@ import org.springframework.integration.support.locks.LockRegistry;
 import java.util.concurrent.locks.Lock;
 
 /**
- * @author
+ * @author ycs
  */
 public class ExecutableLockRegistry implements LockRegistry {
 
@@ -24,4 +24,8 @@ public class ExecutableLockRegistry implements LockRegistry {
         return new ExecutableLock(obtain(o));
     }
 
+    /**
+     * 用法 lockRegistry.obtainExecutableLock("notarycloud:file-preview:" + fileId)
+     *             .execute(() -> this.getExistsPreviewFileOrConvertIt(file));
+     */
 }

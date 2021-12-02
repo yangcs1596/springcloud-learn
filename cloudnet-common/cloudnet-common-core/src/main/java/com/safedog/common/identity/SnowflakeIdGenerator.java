@@ -64,9 +64,12 @@ public class SnowflakeIdGenerator implements IdGenerator {
         this.workerId = workerId;
         this.dataCenterId = dataCenterId;
     }
-
     // ==================================================Methods========================================================
     // 线程安全的获得下一个 ID 的方法
+    /**
+     * 生成18位分布式定增
+     * @return
+     */
     public synchronized long nextId() {
         long timestamp = currentTime();
         //如果当前时间小于上一次ID生成的时间戳: 说明系统时钟回退过 - 这个时候应当抛出异常

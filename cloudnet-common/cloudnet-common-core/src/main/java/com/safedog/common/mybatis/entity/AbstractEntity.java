@@ -21,10 +21,10 @@ public abstract class AbstractEntity extends Model implements Serializable {
     public static final String ID = "id";
     public static final String SORT_NUM = "sortNum";
     public static final String CREATE_APP_ID = "createdAppId";
-    public static final String CREATE_USER_ID = "createdByUser";
+    public static final String CREATE_USER_ID = "createdUser";
     public static final String CREATE_DATE = "createdDate";
     public static final String UPDATE_APP_ID = "updatedAppId";
-    public static final String UPDATE_USER_ID = "updatedByUser";
+    public static final String UPDATE_USER_ID = "updatedUser";
     public static final String UPDATE_DATE = "updatedDate";
 
     @TableId(type = IdType.INPUT)
@@ -42,7 +42,7 @@ public abstract class AbstractEntity extends Model implements Serializable {
      * 创建人
      */
     @TableField(fill = FieldFill.INSERT)
-    protected String createdByUser;
+    protected String createdUser;
 
 
     /**
@@ -68,7 +68,7 @@ public abstract class AbstractEntity extends Model implements Serializable {
      * 最后更新人
      */
     @TableField(fill = FieldFill.UPDATE)
-    protected String updatedByUser;
+    protected String updatedUser;
 
     /**
      * 最后更新时间
@@ -94,7 +94,7 @@ public abstract class AbstractEntity extends Model implements Serializable {
      */
     @Deprecated
     @TableField(select = false)
-    protected String deletedByUser;
+    protected String deletedUser;
 
     /**
      * 删除时间

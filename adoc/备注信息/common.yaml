@@ -1,0 +1,81 @@
+#####
+#
+# 自定义autoconfigure配置
+notary:
+  cloud:
+    local-ip-first: true
+    #gateway-url: http://192.168.88.115:18011
+    gateway-url: http://172.16.12.73:8888
+    #gateway-url: http://117.25.139.24:60164
+    demo-url: https://gitlab-sc.fxnotary.com/wuxin/notarycloud-client
+    test-gateway-url: http://192.168.88.115:18011
+    uat-gateway-url: https://uat-ncgateway.fxnotary.com
+    production-gateway-url: https://nc-gateway.fxnotary.com
+    test-app-id: 368310194706571264
+    test-app-secret: bR6lNbt5BvbfBezKPQjnQZ28
+    uat-app-id: test
+    uat-app-secret: dcdac64e-aa5c-4b3d-b8e2-c5a9b5219e40
+    production-app-id: 389954952344985600
+    production-app-secret: cpojmY5i5rCDYpPbNvSQX2WH
+    production-ljgzc-office-id: 360713263035973632
+    #open_web_url: http://192.168.88.115:18314
+    open_web_url: http://172.16.12.73:8014
+    template_web_url: http://172.16.12.60:8016
+    open_web_ip: 218.98.113.94
+    jwt:
+      secret-key: 3sgST5ptyJuBRpne
+      validity-time: 3000
+  webmvc:
+    error:
+      disable-ding-talk-robot: true
+      message-in-single-line: false
+    internal:
+      secret-key: c0w4NmtjRUphQ0JmOFZrYg==
+      dev-mode: true
+  ding-talk:
+    robot:
+      title: 开发-异常提醒
+      access_token: 47b776815dd1a3c6ec26d52212b70ac305b6da8235d9eeb8aeaf33cfe0815cc7
+      secret: SEC5fa99101a34645814c5e01bdcd503ebdc6dc8a10e1dac5335ba226cfe9c745e6
+      show-details: false
+  executor-service:
+    enabled: true
+    core-pool-size: 2
+#
+# 基础spring autoconfigure配置
+spring:
+  cloud:
+    sentinel:
+      transport:
+        dashboard: 192.168.88.115:8858
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+    default-property-inclusion: non_null
+  zipkin:
+    base-url: http://192.168.88.115:9411/
+  sleuth:
+    sampler:
+      probability: 0.5
+feign:
+  client:
+    config:
+      default:
+        connect-timeout: 3000000
+        read-timeout: 3000000
+
+management:
+  health:
+    rabbit:
+      enabled: false
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+      
+
+fxBusinessNo: 35198540111605000000
+switchFlag: false

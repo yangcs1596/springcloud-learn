@@ -1,0 +1,52 @@
+#分库分表配置
+sharding:
+  jdbc:
+    datasource:
+      names: ds0,ds1  #配置两个数据源
+      ds0:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/land1?characterEncoding=utf-8&useUnicode=true&useSSL=true
+        username: root
+        password: root
+      ds1:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/land2?characterEncoding=utf-8&useUnicode=true&useSSL=true
+        username: root
+        password: root
+config:
+  sharding:
+    default-data-source-name: ds0 # 未配置分片规则的表将通过默认数据源定位
+    default-database-strategy: # 默认数据库分片策略，同分库策略
+      inline:
+        sharding-column: city_id
+        algorithm-expression: ds${city_id % 2}
+    default-table-strategy: # 默认表分片策略，同分表策略
+      inline:
+        shardingColumn: sex
+        algorithm-expression: t_user${sex % 2}
+    tables:
+      t_user:  #t_user表
+        key-generator-column-name: id  #主键
+        actual-data-nodes: ds${0..1}.t_user${0..1}  #数据节点
+        database-strategy:  #分库策略
+          inline:
+            sharding-column: city_id
+            algorithm-expression: ds${city_id % 2}
+        table-strategy:  #分表策略
+          inline:
+            shardingColumn: sex
+            algorithm-expression: t_user${sex % 2}
+      t_address:  #t_address表
+        key-generator-column-name: id
+        actual-data-nodes: ds${0..1}.t_address
+        database-strategy:
+          inline:
+            shardingColumn: lit
+            algorithm-expression: ds${lit % 2}
+    props:
+      sql.show: true  #是否显示sharding-jdbc的sql路由
+mybatis-plus:
+　　type-aliases-package: com.landcode.service.hi.model
+　　mapper-locations: classpath:mapper/*.xml

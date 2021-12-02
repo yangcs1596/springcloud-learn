@@ -6,13 +6,28 @@ server:
   compression:
     enabled: true
     min-response-size: 1024
-# DataSource Config
-# 多数据源
 spring:
+  application:
+    name: cloudnet
   profiles:
     active: sit
+  #上传文件配置
+  #  multipart:
+  #    enabled: true
+  #    location: C:/var/guoheng/picture/
+  #    max-file-size: 10MB
+  #    max-request-size: 10MB
+  ###  读写分离
+  #spring.profiles.active =  dev
+  ###  单库多表
+  #spring.profiles.active =  pro
+  ###  多库单表
+  #spring.profiles.active =  pro1
+  ###  多库多表
   redis:
     jedis:
+      #SpringBoot2.0默认采用Lettuce客户端来连接Redis服务端的
+      #默认是不使用连接池的，只有配置 redis.lettuce.pool下的属性的时候才可以使用到redis连接池
       pool:
         max-active: 200
         # 连接池最大阻塞等待时间（使用负值表示没有限制）
@@ -33,12 +48,38 @@ swagger:
   api-description:
     title: swagger 文档说明
     description: 不知道怎么描述
+    exposure-all: true
+
 encrypt:
   config:
     enable: true  #key: #密钥应该在启动时放在参数里，或者放在env里
-    prefix: TT(
+    prefix: ENC(
     suffix: )
     version: 1.0
     key: 9armor0safe4dog1
-demo: TT(nGkRyFhFQoicg4xtPtF5ag==)
 
+demo: ENC(nGkRyFhFQoicg4xtPtF5ag==)
+
+#https://sa-token.dev33.cn/doc/index.html#/
+#权限配置管理
+sa-token:
+  # token名称 (同时也是cookie名称)
+  token-name: satoken
+  # token有效期，单位s 默认30天, -1代表永不过期
+  timeout: 2592000
+  # token临时有效期 (指定时间内无操作就视为token过期) 单位: 秒
+  activity-timeout: 3600
+  # 是否允许同一账号并发登录 (为true时允许一起登录, 为false时新登录挤掉旧登录)
+  is-concurrent: true
+  # 在多人登录同一账号时，是否共用一个token (为true时所有登录共用一个token, 为false时每次登录新建一个token)
+  is-share: false
+  # token风格 random-64
+  token-style: simple-uuid
+  # 是否输出操作日志
+  is-log: false
+notary:
+  id:
+    datacenter-id: 10
+    worker-id: 10
+    mybatis:
+      enabled: true

@@ -39,9 +39,11 @@ public class SwaggerApiDescriptionAutoConfiguration {
     @ConditionalOnMissingBean
     public Docket apiDescription() {
         return new Docket(DocumentationType.SWAGGER_2)
+                .groupName("cloudnet")
                 .apiInfo(apiInfo())
                 .select()
                 .apis(apiPredicate())
+//                .apis(RequestHandlerSelectors.basePackage("com.example.swagger.admin"))
                 .build();
     }
 

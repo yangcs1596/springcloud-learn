@@ -17,6 +17,10 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.boot</groupId>-->
+            <!--<artifactId>spring-boot-starter-security</artifactId>-->
+        <!--</dependency>-->
         <!--引入aop-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -30,17 +34,12 @@
 
         <dependency>
             <groupId>com.safedog.cloudnet</groupId>
-            <artifactId>cloudnet-common-core</artifactId>
+            <artifactId>cloudnet-common-autoconfigure</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>com.safedog.cloudnet</groupId>
             <artifactId>cloud-stater-redis-lock</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.safedog.cloudnet</groupId>
-            <artifactId>cloudnet-common-autoconfigure</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
@@ -52,6 +51,17 @@
             <groupId>com.safedog.cloudnet</groupId>
             <artifactId>cloud-starter-swagger-ui</artifactId>
             <version>${project.version}</version>
+        </dependency>
+        <!--es依赖-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
+        </dependency>
+        <!--swagger的ui界面-->
+        <dependency>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>knife4j-spring-boot-starter</artifactId>
+            <version>2.0.1</version>
         </dependency>
         <dependency>
             <groupId>com.safedog.cloudnet</groupId>
@@ -74,6 +84,22 @@
             <groupId>com.safedog.cloudnet</groupId>
             <artifactId>cloud-starter-kubernetes</artifactId>
             <version>${project.version}</version>
+        </dependency>
+        <!--
+
+        官网地址： https://sa-token.dev33.cn/doc/index.html#/
+        -->
+        <!-- Sa-Token 权限认证, 在线文档：http://sa-token.dev33.cn/ -->
+        <dependency>
+            <groupId>cn.dev33</groupId>
+            <artifactId>sa-token-spring-boot-starter</artifactId>
+            <version>1.25.0</version>
+        </dependency>
+        <!-- sa-token整合redis (使用jdk默认序列化方式) -->
+        <dependency>
+            <groupId>cn.dev33</groupId>
+            <artifactId>sa-token-dao-redis</artifactId>
+            <version>1.25.0</version>
         </dependency>
     </dependencies>
 

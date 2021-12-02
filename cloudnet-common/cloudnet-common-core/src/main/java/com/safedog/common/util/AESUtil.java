@@ -57,10 +57,10 @@ public class AESUtil {
     }
 
     public static void main(String[] args) {
-        String encrypt = AESUtil.encrypt("123456", "9armor0safe4dog1");
+        String encrypt = AESUtil.encrypt( "elastic", "safedogcloudeyes");
         System.out.println(encrypt);
         System.out.println("====================");
-        String decrypt = AESUtil.decrypt(encrypt, "9armor0safe4dog1");
+        String decrypt = AESUtil.decrypt(encrypt, "safedogcloudeyes");
         System.out.println(decrypt);
     }
 }

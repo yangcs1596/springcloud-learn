@@ -1,31 +1,18 @@
 package com.safedog.cloudnet.k8s;
 
-import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import io.kubernetes.client.custom.V1Patch;
 import io.kubernetes.client.openapi.ApiClient;
-import io.kubernetes.client.openapi.ApiException;
-import io.kubernetes.client.openapi.ApiResponse;
 import io.kubernetes.client.openapi.Configuration;
-import io.kubernetes.client.openapi.apis.*;
-import io.kubernetes.client.openapi.models.*;
-import io.kubernetes.client.proto.V1beta1Policy;
+import io.kubernetes.client.openapi.apis.CoreV1Api;
+import io.kubernetes.client.openapi.models.V1Node;
+import io.kubernetes.client.openapi.models.V1Pod;
+import io.kubernetes.client.openapi.models.V1PodList;
+import io.kubernetes.client.openapi.models.V1beta1Eviction;
 import io.kubernetes.client.util.ClientBuilder;
-import io.kubernetes.client.util.Config;
-import io.kubernetes.client.util.KubeConfig;
 import io.kubernetes.client.util.credentials.AccessTokenAuthentication;
 import lombok.extern.slf4j.Slf4j;
-import okhttp3.Call;
-import okhttp3.Response;
-import org.apache.commons.collections.CollectionUtils;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
-
-import java.beans.Transient;
-import java.io.File;
-import java.io.FileReader;
 
 @SpringBootTest
 @Slf4j
@@ -51,6 +38,13 @@ public class k8sApiTest {
 //        ApiClient apiClient = new ClientBuilder().kubeconfig(KubeConfig.loadKubeConfig(new FileReader("C:\\Users\\ASUS\\Desktop\\config"))).build();
         Configuration.setDefaultApiClient(apiClient);
         return apiClient;
+    }
+
+    @Test
+    public void test_cluster() throws Exception {
+        this.initApiClient();
+        CoreV1Api coreV1Api = new CoreV1Api();
+
     }
 
     @Test
@@ -101,6 +95,16 @@ public class k8sApiTest {
                 null, null, null);
         System.out.println(JSONObject.toJSONString(podEviction));
 
+    }
+    @Test
+    public void test_node() throws Exception{
+        this.initApiClient();
+        CoreV1Api coreV1Api = new CoreV1Api();
+
+        V1PodList v1PodList = coreV1Api.listPodForAllNamespaces(null,
+                null, null, null,
+                null, null, null, null, null, null);
+        System.out.println(JSONObject.toJSONString(v1PodList));
 
     }
 

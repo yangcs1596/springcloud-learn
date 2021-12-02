@@ -16,6 +16,10 @@ public class CloudnetApplication {
         //windows启动需要知道
         System.setProperty("hadoop.home.dir", "D:\\hadoop\\hadoop-2.7.0");
         SpringApplication.run(CloudnetApplication.class, args);
+
+        System.out.println("///////////////////////////////////////////////////////////////////////////");
+        System.out.println("//                      cloud net started successfully                   //");
+        System.out.println("///////////////////////////////////////////////////////////////////////////");
     }
 
 }

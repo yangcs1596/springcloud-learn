@@ -18,6 +18,7 @@
         <module>cloudnet</module>
         <module>cloudnet-common</module>
         <module>starter</module>
+        <module>cloud-generate</module>
     </modules>
     <properties>
         <alibaba-fastjson.version>1.2.60</alibaba-fastjson.version>
@@ -44,6 +45,9 @@
         <javaee-api.version>8.0</javaee-api.version>
         <ribbon-core.version>2.7.17</ribbon-core.version>
         <feign-core.version>10.4.0</feign-core.version>
+        <hibernate-validator.version>5.4.1.Final</hibernate-validator.version>
+        <es.version>5.5.1</es.version>
+        <jest.version>6.3.1</jest.version>
     </properties>
     <dependencies>
         <dependency>
@@ -118,6 +122,12 @@
                 <artifactId>hutool-all</artifactId>
                 <version>${hutool.version}</version>
             </dependency>
+            <!-- 校验工具 -->
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-validator</artifactId>
+                <version>${hibernate-validator.version}</version>
+            </dependency>
             <!--工具包结束-->
             <!--mybatis-plus-->
             <dependency>
@@ -148,6 +158,22 @@
                 <version>${jsch.version}</version>
             </dependency>
             <!--sftp结束-->
+            <!-- es相关客户端 -->
+            <dependency>
+                <groupId>org.elasticsearch</groupId>
+                <artifactId>elasticsearch</artifactId>
+                <version>${es.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.searchbox</groupId>
+                <artifactId>jest</artifactId>
+                <version>${jest.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.searchbox</groupId>
+                <artifactId>jest-common</artifactId>
+                <version>${jest.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -176,12 +202,12 @@
                         <plugin>
                             <groupId>org.springframework.boot</groupId>
                             <artifactId>spring-boot-maven-plugin</artifactId>
-                            <configuration>
-                                <arguments>
-                                    <argument>--logging.config=classpath:logback-dev.xml</argument>
-                                    <argument>--spring.devtools.livereload.enabled=false</argument>
-                                </arguments>
-                            </configuration>
+                            <!--<configuration>-->
+                                <!--<arguments>-->
+                                    <!--<argument>&#45;&#45;logging.config=classpath:logback-dev.xml</argument>-->
+                                    <!--<argument>&#45;&#45;spring.devtools.livereload.enabled=false</argument>-->
+                                <!--</arguments>-->
+                            <!--</configuration>-->
                         </plugin>
                     </plugins>
                 </pluginManagement>

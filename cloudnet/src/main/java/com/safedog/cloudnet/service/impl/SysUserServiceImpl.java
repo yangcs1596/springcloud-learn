@@ -1,6 +1,6 @@
 package com.safedog.cloudnet.service.impl;
 
-import com.safedog.cloudnet.entity.phoenix.SysUser;
+import com.safedog.cloudnet.entity.mysql.SysUser;
 import com.safedog.cloudnet.mapper.mysql.SysUserMapper;
 import com.safedog.cloudnet.service.SysUserService;
 import com.safedog.common.mybatis.service.Impl.BaseServiceImpl;
