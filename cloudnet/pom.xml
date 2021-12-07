@@ -54,8 +54,9 @@
         </dependency>
         <!--es依赖-->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
+            <groupId>com.safedog.cloudnet</groupId>
+            <artifactId>cloud-starter-elastic-search</artifactId>
+            <version>${project.version}</version>
         </dependency>
         <!--swagger的ui界面-->
         <dependency>
