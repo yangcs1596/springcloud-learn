@@ -10,7 +10,7 @@ spring:
   application:
     name: cloudnet
   profiles:
-    active: sit
+    active: init, @env@
   #上传文件配置
   #  multipart:
   #    enabled: true
@@ -44,15 +44,16 @@ spring:
   aop:
     proxy-target-class: true
 swagger:
-  enable: true
+  enable: ${swagger_enable}
   api-description:
     title: swagger 文档说明
     description: 不知道怎么描述
     exposure-all: true
+  #url : http://xxxxx/doc.html
 
 encrypt:
   config:
-    enable: true  #key: #密钥应该在启动时放在参数里，或者放在env里
+    enable: ${encrypt_enable}  #key: #密钥应该在启动时放在参数里，或者放在env里
     prefix: ENC(
     suffix: )
     version: 1.0
@@ -82,4 +83,4 @@ notary:
     datacenter-id: 10
     worker-id: 10
     mybatis:
-      enabled: true
+      enabled: ${notary_mybatis_enable}

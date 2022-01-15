@@ -10,9 +10,21 @@ public class ExecutorServiceProperties {
 
     private boolean enabled = false;
     private String threadNamePrefix = "NotaryCloud-";
-    private int corePoolSize = 1;
+    /**
+     * 核心线程数
+     */
+    private int corePoolSize = 50;
+    /**
+     * 任务拒绝处理器
+     */
     private RejectPolicy rejectPolicy = RejectPolicy.CALLER_RUNS;
+    /**
+     * 线程空闲时间
+     */
     private int keepAliveSeconds = 60;
+    /**
+     * 最大线程数
+     */
     private int maxPoolSize = Integer.MAX_VALUE;
 
     public boolean isEnabled() {

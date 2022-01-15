@@ -10,6 +10,7 @@ import org.elasticsearch.index.query.BoolQueryBuilder;
 import org.elasticsearch.search.builder.SearchSourceBuilder;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.elasticsearch.core.ElasticsearchOperations;
 
 /**
  * @author ycs
@@ -20,6 +21,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class ElasticSearchUtilsTest extends CloudnetApplicationTests {
     @Autowired
     private JestClient jestClient;
+//    方式二的使用
+    @Autowired
+    private ElasticsearchOperations elasticsearchOperations;
     @Test
     public void testQuery(){
         try {
@@ -28,11 +32,13 @@ public class ElasticSearchUtilsTest extends CloudnetApplicationTests {
             searchSourceBuilder.query(boolQueryBuilder);
             Search build = new Search.Builder(searchSourceBuilder.toString()).addIndex("cloudarmor_asset_app_risk_index").addType("AssetAppRiskInfo").build();
             SearchResult execute = jestClient.execute(build);
-            log.info(JSONObject.toJSONString(execute));
+            log.info(JSONObject.toJSONString(execute.toString()));
         } catch (Exception e) {
             log.info(e.getMessage());
         }
 
 
     }
+
+
 }

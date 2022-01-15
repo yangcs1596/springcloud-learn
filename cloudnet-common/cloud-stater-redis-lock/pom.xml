@@ -9,8 +9,15 @@
     </parent>
     <artifactId>cloud-stater-redis-lock</artifactId>
     <name>redis工具</name>
-    <description>redis工具</description>
     <dependencies>
+        <!-- spring session的依赖 -->
+        <!--@EnableRedisHttpSession(maxInactiveIntervalInSeconds= 3600*24, redisFlushMode = RedisFlushMode.ON_SAVE, redisNamespace = "aurora-web")
+         session托管到redis-->
+        <dependency>
+            <groupId>org.springframework.session</groupId>
+            <artifactId>spring-session-data-redis</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>

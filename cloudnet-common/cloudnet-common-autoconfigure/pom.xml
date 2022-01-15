@@ -9,7 +9,6 @@
     </parent>
     <artifactId>cloudnet-common-autoconfigure</artifactId>
     <name>自动配置</name>
-    <description>自动注入配置</description>
 
     <dependencies>
         <dependency>

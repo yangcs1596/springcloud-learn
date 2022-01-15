@@ -1,14 +1,23 @@
 package com.safedog.cloudnet;
 
+import cn.hutool.core.io.IoUtil;
+import com.alibaba.fastjson.JSONObject;
+import com.google.common.base.Charsets;
 import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Table;
+import com.safedog.cloudnet.model.TestModel;
 import com.safedog.common.thread.ThreadPoolManager;
 import com.safedog.common.util.ZLibUtil;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.util.ResourceUtils;
+import org.yaml.snakeyaml.Yaml;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.concurrent.CompletableFuture;
 
@@ -45,10 +54,40 @@ public class NotRunTest {
     }
 
     @Test
-    public void testMap(){
-
-
+    public void testJsonIgnore(){;
+        TestModel testModel = new TestModel();
+        testModel.setAge(15);
+        testModel.setName("张三");
+        System.out.println(JSONObject.toJSONString(testModel));
     }
+
+    /**
+     * 将config文件输出成config文件
+     */
+    @Test
+    public void testYaml() throws Exception {
+        File file = new File("C:\\Users\\ASUS\\Desktop\\config");
+        InputStream inputStream = new FileInputStream(file);
+        String read = IoUtil.read(inputStream, Charsets.UTF_8);
+        Yaml yaml = new Yaml();
+        String yamlStr = yaml.dump(read);
+        //读取 JSON 字符串
+//        JsonNode jsonNodeTree = new ObjectMapper().readTree(read);
+//        -----------------------------------------------
+//        JsonNode jsonNode = new YAMLMapper().readTree(file);
+//        //转换成 YAML 字符串
+//        String yamlStr = new YAMLMapper().writeValueAsString(jsonNode);
+        inputStream.close();
+
+        System.out.println(read);
+    }
+
+
+
+    /**
+     * 理解为二维数组
+     * table为两个key，确定一个value
+     */
     @Test
     public void testTable(){
         Table<String, String, Object> basedTable = HashBasedTable.create();
@@ -74,6 +113,22 @@ public class NotRunTest {
             objectObjectHashMap.put("b", "b");
             System.out.println(objectObjectHashMap);
         });
+        ThreadPoolManager.getThreadPool().execute(()->{
+            System.out.println("我的青春结束了");
+        });
         System.out.println(objectObjectHashMap);
     }
+
+    @Test
+    public void pathTest(){
+        String classPath = NotRunTest.class.getClassLoader().getResource(File.separator).getPath();
+        System.out.println(classPath);
+        System.out.println(StringUtils.substringBeforeLast(classPath, "/target"));
+        System.out.println(System.getProperty("user.dir"));
+
+        String path = Thread.currentThread().getContextClassLoader().getResource("//").getPath();
+        System.out.println(path);
+    }
+
+
 }

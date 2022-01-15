@@ -1,13 +1,7 @@
 package com.safedog.cloudnet;
 
 import lombok.extern.slf4j.Slf4j;
-import org.apache.hadoop.conf.Configuration;
-import org.apache.hadoop.fs.BlockLocation;
-import org.apache.hadoop.fs.FileStatus;
-import org.apache.hadoop.fs.FileSystem;
-import org.apache.hadoop.fs.LocatedFileStatus;
-import org.apache.hadoop.fs.Path;
-import org.apache.hadoop.fs.RemoteIterator;
+import org.apache.hadoop.fs.*;
 import org.junit.Before;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -30,18 +24,18 @@ class HdfsTest {
 
     @Test
     void contextLoads() {
-        System.setProperty("hadoop.home.dir", "D:\\hadoop\\hadoop-2.7.0");
-        Configuration configuration = new Configuration();
-        configuration.set("fs.defaultFS", "hdfs://192.168.88.89:9000");
-        configuration.set("hadoop.home.dir", "D:\\hadoop\\hadoop-2.7.0");
-        try {
-            FileSystem fs = FileSystem.get(configuration);
-//            fs.copyFromLocalFile(new Path("D:\\测试文档\\d.txt"), new Path("/test"));
-            fs.copyToLocalFile(new Path("hdfs://192.168.88.89:9000/cc.txt"), new Path("C:\\Users\\ASUS\\Desktop\\d.txt"));
-            fs.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+//        System.setProperty("hadoop.home.dir", "D:\\hadoop\\hadoop-2.7.0");
+//        Configuration configuration = new Configuration();
+//        configuration.set("fs.defaultFS", "hdfs://192.168.88.89:9000");
+//        configuration.set("hadoop.home.dir", "D:\\hadoop\\hadoop-2.7.0");
+//        try {
+//            FileSystem fs = FileSystem.get(configuration);
+////            fs.copyFromLocalFile(new Path("D:\\测试文档\\d.txt"), new Path("/test"));
+//            fs.copyToLocalFile(new Path("hdfs://192.168.88.89:9000/cc.txt"), new Path("C:\\Users\\ASUS\\Desktop\\d.txt"));
+//            fs.close();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
     }
 
     @Autowired

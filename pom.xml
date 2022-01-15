@@ -46,8 +46,10 @@
         <ribbon-core.version>2.7.17</ribbon-core.version>
         <feign-core.version>10.4.0</feign-core.version>
         <hibernate-validator.version>5.4.1.Final</hibernate-validator.version>
-        <es.version>5.5.1</es.version>
+        <!--<es.version>5.5.1</es.version>-->
+        <es.version>7.12.1</es.version>
         <jest.version>6.3.1</jest.version>
+        <cpdetector.version>1.0.10</cpdetector.version>
     </properties>
     <dependencies>
         <dependency>
@@ -68,6 +70,18 @@
 
     <dependencyManagement>
         <dependencies>
+            <!--log4j2 版本的重大漏洞修复-->
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-api</artifactId>
+                <version>2.15.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-core</artifactId>
+                <version>2.15.0</version>
+            </dependency>
+
             <dependency>
                 <groupId>com.safedog.cloudnet</groupId>
                 <artifactId>cloudnet-common</artifactId>
@@ -181,6 +195,16 @@
         <profile>
             <id>dev</id>
             <!--可以自定义properties属性-->
+            <properties>
+                <env>dev</env>
+            </properties>
+        </profile>
+        <profile>
+            <id>sit</id>
+            <!--可以自定义properties属性-->
+            <properties>
+                <env>sit</env>
+            </properties>
         </profile>
         <profile>
             <id>dev-tools</id>

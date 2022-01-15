@@ -4,11 +4,19 @@ import com.safedog.cloudnet.template.HadoopTemplate;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.hadoop.fs.FileSystem;
+import org.apache.hadoop.fs.Path;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.StreamUtils;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 
 
 /**
@@ -28,6 +36,8 @@ public class HdfsController {
 
     @Autowired
     private HadoopTemplate hadoopTemplate;
+    @Autowired
+    private FileSystem fileSystem;
 
     /**
      * 将本地文件srcFile,上传到hdfs
@@ -49,7 +59,16 @@ public class HdfsController {
 
     @ApiOperation(value="下载文件")
     @GetMapping("/download")
-    public void download(@RequestParam String fileName, @RequestParam String savePath){
-        hadoopTemplate.download(fileName,savePath);
+    public void download(@RequestParam String fileName,
+                         @RequestParam(required = false) String savePath,
+                         HttpServletResponse response){
+//        hadoopTemplate.download(fileName,savePath);
+        try {
+            InputStream in = fileSystem.open(new Path(fileName));
+            OutputStream out = response.getOutputStream();
+            StreamUtils.copy(in, out);
+        } catch (IOException e) {
+            log.info("=========error=============" + e.getMessage());
+        }
     }
 }

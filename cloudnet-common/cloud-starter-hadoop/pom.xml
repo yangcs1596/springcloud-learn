@@ -91,6 +91,14 @@
                 </exclusion>
             </exclusions>
         </dependency>
+
+        <!-- 方式二 添加spring boot 依赖-->
+        <!--https://blog.csdn.net/victorzzzz/article/details/83420596-->
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.data</groupId>-->
+            <!--<artifactId>spring-data-hadoop-boot</artifactId>-->
+            <!--<version>RELEASE</version>-->
+        <!--</dependency>-->
     </dependencies>
 
 

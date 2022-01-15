@@ -8,4 +8,5 @@ import java.util.List;
 public interface SysUserService extends IBaseService<SysUser> {
 
     public List<SysUser> test();
+    public List<SysUser> testSelect();
 }

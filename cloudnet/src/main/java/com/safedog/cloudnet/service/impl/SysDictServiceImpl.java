@@ -22,8 +22,14 @@ import java.util.Objects;
 @Slf4j
 @Service
 public class SysDictServiceImpl extends BaseServiceImpl<SysDictMapper, SysDict> implements SysDictService {
+    /**
+     * 填充list， page也同理， 封装成一个工具》？
+     * 利用@PostConstuct 完成service的inti()初始化
+     * @param obj
+     */
     @Override
     public void fillTextFieldDueAnnotation(Object obj) {
+        SysDict sysDict = new SysDict();
         if (Objects.isNull(obj)) {
 //            Assert.notNull(obj, "字典填充对象不能为空");
             return;

@@ -1,9 +1,9 @@
 #name-node
 hadoop:
-  enable: true
+  enable: ${hadoop_enable}
   user-name: mybk
   name-node: hdfs://hdfs1.safedog.cn:9000
-  namespace: /upload/reportFile #hdfs目录
+  namespace: / #hdfs目录
 zookeeper:
   address: 192.168.89.246:2181
 hbase:
@@ -44,17 +44,25 @@ spring:
       connection-timeout: 30000
       # 连接测试 sql 这个地方需要根据数据库方言差异而配置 例如 oracle 就应该写成  select 1 from dual
       connection-test-query: SELECT 1
+  #单机模式
   redis:
     database: 0
-    #单机模式
     host: redis.safedog.cn
     port: 39807
     # Redis服务器连接密码（默认为空）
     password: Ctx1ytxA@3zdj
     #三种集群方式 主从复制，哨兵模式， Redis-Cluster模式
     #在安装redis的目录找到redis配置文件redis.conf，里面会找到配置： cluster-enabled yes
-# 方式二的自动
 #  方式一的配置
+  data:
+    elasticsearch:
+      client:
+        reactive:
+          username: elastic
+          password: safedog@2018
+          endpoints:
+            - http://192.168.72.145:9200
+# 方式二的自动
 elasticsearch:
   jest:
     uris: http://192.168.72.145:9200/

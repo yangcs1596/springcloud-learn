@@ -120,7 +120,7 @@ public class SftpUtil {
                 exec.setCommand(cmd);
                 exec.setInputStream(null);
                 exec.setErrStream(System.err);
-                //连接
+                //连接并且已执行cmd
                 exec.connect();
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(exec.getErrStream()));
                 String line = "";
@@ -272,11 +272,49 @@ public class SftpUtil {
     }
 
 
+    /**
+     * 创建目录
+     * @param directory
+     * @return
+     */
+    public boolean mkFile(String directory){
+        if(StringUtils.hasLength(directory)){
+            try {
+                sftp = (ChannelSftp)session.openChannel("sftp");
+                sftp.connect();
+                log.info("SftpUtil sftp isConnected {}", sftp.isConnected());
+                //TODO 需要判断路径是否是目录的路径，防止文件路径
+                //1、查看目录是否存在
+                Vector ls;
+                try {
+                    ls = sftp.ls(directory);
+                } catch (SftpException e) {
+                    ls = null;
+                }
+                if(ls == null){
+                    //目录不存在，新建目录
+                    sftp.mkdir(directory);
+                }
+                //2、执行切换cd, 进入目录
+                sftp.cd(directory);
+            } catch (Exception e) {
+                log.info("file error {}", e.getMessage());
+            } finally {
+                sftp.disconnect();
+            }
+        }
+        return false;
+    }
+
     //上传文件测试
     public static void main(String[] args) throws Exception {
         SftpUtil sftpUtil = SftpUtil.login("root", "192.168.89.246", "22", "safedog@shx19");
         //执行过程
-        sftpUtil.execCommand("export RSYNC_PASSWORD=\"1\"  && rsync -rlptD -vih -a  --port 1  --delete 1@1::1");
+        //export RSYNC_PASSWORD="n:P57N.,\"\`4bYSHMO-#I*2cXai|:q@X^"  && rsync -rlptD -vih -a  --port 22873
+        // --delete mybk@192.168.88.45::linshi/ubuntu /home/data/patch_library/centos;
+//        sftpUtil.execCommand("export RSYNC_PASSWORD=\"1\"  && rsync -rlptD -vih -a  --port 1  --delete 1@1::1");
+//        sftpUtil.execCommand("export RSYNC_PASSWORD=\"n:P57N.,\\\"\\`4bYSHMO-#I*2cXai|:q@X^\"  && rsync -rlptD -vih -a  --port 22873  --delete mybk@192.168.88.45::cpatch/win /home/data/win;");
+        sftpUtil.mkFile("/home/data/win");
         //退出
         sftpUtil.logout();
 

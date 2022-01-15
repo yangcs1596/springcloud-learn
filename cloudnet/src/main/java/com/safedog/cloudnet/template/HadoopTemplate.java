@@ -70,7 +70,7 @@ public class HadoopTemplate {
     }
 
     public void download(String fileName, String savePath) {
-        getFile(nameSpace + "/" + fileName, savePath);
+        getFile(fileName, savePath);
     }
 
 

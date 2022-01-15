@@ -13,11 +13,14 @@
     <packaging>pom</packaging>
     <modules>
         <module>cloudnet-common-core</module>
+        <module>cloudnet-common-autoconfigure</module>
+        <module>cloud-starter-elastic-search</module>
         <module>cloud-starter-swagger-ui</module>
         <module>cloud-starter-spark</module>
         <module>cloud-starter-hadoop</module>
         <module>cloud-starter-kubernetes</module>
         <module>cloud-stater-mybatis-plus</module>
+        <module>cloud-stater-redis-lock</module>
     </modules>
 
     <build>

@@ -1,0 +1,5 @@
+swagger_enable: true
+encrypt_enable: true
+# mybatis的自动属性注入
+notary_mybatis_enable: true
+hadoop_enable: true
