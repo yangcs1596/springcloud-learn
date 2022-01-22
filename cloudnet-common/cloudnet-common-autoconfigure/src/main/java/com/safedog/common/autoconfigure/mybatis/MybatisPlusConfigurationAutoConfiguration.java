@@ -47,8 +47,12 @@ public class MybatisPlusConfigurationAutoConfiguration {
                 configuration.addInterceptor(new OptimisticLockerInterceptor());
             }
 
+            /**
+             * 分页功能启动
+             */
             if (myBatisPlusConfigurationProperties.getPageable().isEnabled()) {
                 PaginationInterceptor paginationInterceptor = new PaginationInterceptor();
+                // 最大单页限制数量 默认500 小于0如-1  不受限制
                 paginationInterceptor.setLimit(myBatisPlusConfigurationProperties.getPageable().getPageSize());
                 configuration.addInterceptor(paginationInterceptor);
             }

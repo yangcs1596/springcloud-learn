@@ -6,6 +6,7 @@ import com.safedog.cloudnet.service.SysUserService;
 import com.safedog.common.mybatis.entity.AbstractEntity;
 import com.safedog.common.mybatis.service.Impl.BaseServiceImpl;
 import lombok.AllArgsConstructor;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,6 +21,7 @@ public class SysUserServiceImpl extends BaseServiceImpl<SysUserMapper, SysUser> 
         return sysUsers;
     }
 
+    @Cacheable
     @Override
     public List<SysUser> testSelect(){
         List<SysUser> list = super.lambdaQuery().select(AbstractEntity::getId)

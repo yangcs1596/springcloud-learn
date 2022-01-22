@@ -13,6 +13,10 @@ import java.util.function.Consumer;
 public class ConsumerTest {
     private final ConsumerModel consumerModel;
 
+    public static ConsumerTest create(){
+        return new ConsumerTest(new ConsumerModel());
+    }
+
     public ConsumerTest(ConsumerModel consumerModel) {
         this.consumerModel = consumerModel;
     }
@@ -20,7 +24,12 @@ public class ConsumerTest {
 
     public ConsumerTest test(Consumer<ConsumerModel> consumer){
         consumer.accept(this.consumerModel);
+        return this;
+    }
+
+    public ConsumerTest printInfo(){
         log.info("============consumerModel============{}", consumerModel);
         return this;
     }
+
 }

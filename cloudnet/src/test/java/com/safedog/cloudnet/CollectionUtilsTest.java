@@ -34,7 +34,16 @@ public class CollectionUtilsTest {
         System.out.println("=====intersection" + intersection);
         System.out.println("=====disjunction" + disjunction);
         System.out.println("=====subtract" + subtract);
-        System.out.println(VersionUtil.processVersionStr("17.06.2-5"));
     }
 
+    @Test
+    public void test_versionUtil(){
+        //格式化
+        String ver = VersionUtil.processVersionStr("20213.04.9A-1");
+        //左填充补 fillChar
+        String fillStr = VersionUtil.flushLeftThree('0', 3, ver);
+        System.out.println(fillStr);
+        System.out.println(VersionUtil.removeFillChar('0', fillStr));
+
+    }
 }

@@ -1,5 +1,6 @@
 package com.safedog.cloudnet.function;
 
+import com.safedog.common.function.ConsumerTest;
 import com.safedog.common.function.TestUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
@@ -35,6 +36,9 @@ public class FunctionTest {
 
     @Test
     public void consumer(){
-        TestUtils.testConsumer();
+        ConsumerTest.create()
+                .test(builder -> builder.setName("哈哈哈哈"))
+                .printInfo();
+//        TestUtils.testConsumer();
     }
 }
