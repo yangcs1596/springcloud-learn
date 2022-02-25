@@ -5,8 +5,6 @@ import lombok.extern.slf4j.Slf4j;
 import redis.clients.jedis.*;
 import redis.clients.jedis.util.SafeEncoder;
 
-import java.util.*;
-
 /**
  * Redis工具类
  *

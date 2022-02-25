@@ -1,5 +1,6 @@
 package com.safedog.cloudnet.entity.mysql;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.safedog.common.mybatis.entity.AbstractEntity;
 import lombok.Data;
@@ -14,5 +15,6 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = true)
 @TableName("sys_user")
 public class SysUser extends AbstractEntity {
+    @TableField("用户名称")
     private String name;
 }

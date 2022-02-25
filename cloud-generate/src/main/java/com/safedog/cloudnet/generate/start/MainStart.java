@@ -33,11 +33,21 @@ public class MainStart {
                     .packageConfig(builder -> {
                         builder.parent("com.baomidou.mybatisplus.samples.generator") // 设置父包名
                                 .moduleName("system") // 设置父包模块名
-                                .pathInfo(Collections.singletonMap(OutputFile.mapperXml, "D://")); // 设置mapperXml生成路径
+                                .pathInfo(Collections.singletonMap(OutputFile.mapperXml, "D://com//baomidou//")); // 设置mapperXml生成路径
                     })
                     .strategyConfig(builder -> {
                         builder.addInclude("sys_user") // 设置需要生成的表名
-                                .addTablePrefix("t_", "c_"); // 设置过滤表前缀
+                                .addTablePrefix("t_", "c_") // 设置过滤表前缀
+                                //mapper策略集配置，可去掉使用默认
+//                                .mapperBuilder()
+//                                .superClass(BaseMapper.class)
+//                                .enableMapperAnnotation()
+//                                .enableBaseResultMap()
+//                                .enableBaseColumnList()
+////                               .cache(MyMapperCache.class)
+//                                .formatMapperFileName("%sDao")
+//                                .formatXmlFileName("%sXml")
+                                ;
                     })
                     .templateEngine(new FreemarkerTemplateEngine()) // 使用Freemarker引擎模板，默认的是Velocity引擎模板
                     .execute();

@@ -32,7 +32,6 @@ public class CommonResponseAdvice implements ResponseBodyAdvice<Object> {
     }
 
     @Override
-    @SuppressWarnings("all")
     public boolean supports(MethodParameter methodParameter,
                             Class<? extends HttpMessageConverter<?>> aClass) {
         return filter(methodParameter);
@@ -40,7 +39,6 @@ public class CommonResponseAdvice implements ResponseBodyAdvice<Object> {
 
     @Nullable
     @Override
-    @SuppressWarnings("all")
     public Object beforeBodyWrite(Object o, MethodParameter methodParameter, MediaType mediaType,
                                   Class<? extends HttpMessageConverter<?>> aClass, ServerHttpRequest serverHttpRequest,
                                   ServerHttpResponse serverHttpResponse) {

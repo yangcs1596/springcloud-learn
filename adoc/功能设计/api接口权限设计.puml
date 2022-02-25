@@ -1,0 +1,42 @@
+@startuml
+class AbstractList
+interface List
+
+List <|-- AbstractList
+
+@enduml
+
+@startuml
+:Hello world;
+:This is on defined on
+several **lines**;
+@enduml
+basic diagram activity
+Start/Stop
+
+@startuml
+start
+if (Graphviz installed?) then (yes)
+  :process all\ndiagrams;
+else (no)
+  :process only
+  __sequence__ and __activity__ diagrams;
+endif
+stop
+@enduml
+
+@startuml
+|Swimlane1|
+start
+:foo1;
+|#AntiqueWhite|Swimlane2|
+:foo2;
+:foo3;
+|Swimlane1|
+:foo4;
+|Swimlane2|
+:foo5;
+|Swimlane23|
+:foo6;
+stop
+@enduml

@@ -1,6 +1,5 @@
 package com.safedog.common.ipsearch.utils;
 
-import java.io.*;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
 

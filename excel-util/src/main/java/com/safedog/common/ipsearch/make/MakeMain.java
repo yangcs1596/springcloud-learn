@@ -1,11 +1,8 @@
 package com.safedog.common.ipsearch.make;
 
 import com.safedog.common.ipsearch.model.IPSearchConstant;
-import com.safedog.common.ipsearch.utils.ByteUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.time.StopWatch;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;

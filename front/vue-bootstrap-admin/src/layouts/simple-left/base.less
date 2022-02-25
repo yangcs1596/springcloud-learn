@@ -1,0 +1,86 @@
+
+body {
+  font-size: .875rem;
+  background-color: #dee2e6;
+  margin: 0rem;
+  padding: 0rem;
+  overflow: hidden;
+}
+
+.simple {
+  margin: 0rem;
+  padding: 0rem;
+  background-color: #E6EBF0;
+
+  @keyframes slide-to-mini {
+    from {
+      width: 200px;
+    }
+    to {
+      width: 60px;
+    }
+  }
+
+  @time-func: ease-in; //-in-out;
+
+  .body-left {
+    width: 200px;
+    position: absolute;
+    *position: relative;
+    float: left;
+    margin: 0;
+    padding: 0;
+    transition: width 0.3s @time-func;
+
+    .collapse-hidden {
+      opacity: 1;
+      white-space: nowrap !important;
+      transition: opacity 0.3s @time-func;
+    }
+  }
+
+  .body-right {
+    margin-left: 200px;
+    position: relative;
+    transition: margin-left 0.3s @time-func;
+  }
+
+
+  .layout-min {
+    @time-func-out: ease-out; //-in-out;
+
+    .body-left {
+      width: 60px;
+      transition: width 0.3s @time-func-out;
+
+      .collapse-hidden {
+        opacity: 0%;
+        transition: opacity 0.3s @time-func-out;
+      }
+
+    }
+
+    .body-right {
+      margin-left: 60px;
+      transition: margin-left 0.3s @time-func-out;
+    }
+
+  }
+
+  @import 'navbar';
+
+  @import 'slide-menu';
+
+}
+
+main {
+  display: block;
+  margin: 16px;
+  background-color: #FFFFFF;
+
+}
+
+.content {
+  height: calc(100vh - 40px);
+  overflow-y: scroll;
+}

@@ -50,6 +50,7 @@
         <es.version>7.12.1</es.version>
         <jest.version>6.3.1</jest.version>
         <cpdetector.version>1.0.10</cpdetector.version>
+        <ini4j.version>0.5.4</ini4j.version>
     </properties>
     <dependencies>
         <dependency>
@@ -187,6 +188,11 @@
                 <groupId>io.searchbox</groupId>
                 <artifactId>jest-common</artifactId>
                 <version>${jest.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.ini4j</groupId>
+                <artifactId>ini4j</artifactId>
+                <version>${ini4j.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

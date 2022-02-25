@@ -1,0 +1,86 @@
+
+body {
+  font-size: .875rem;
+  background-color: #FFFFFF;
+  overflow: hidden;
+}
+
+.multi {
+
+  @time-func: ease-in; //-in-out;
+
+  .body-left {
+    width: 200px;
+    position: absolute;
+    *position: relative;
+    margin: 0;
+    transition: width .2s @time-func;
+    overflow: hidden;
+
+    .collapse-arrow, .collapse-hidden {
+      opacity: 1;
+      overflow: hidden;
+      white-space: nowrap !important;
+      transition: width 0.2s @time-func, opacity 0.2s @time-func;
+    }
+  }
+
+  .body-right {
+    margin-left: 200px;
+    position: relative;
+    transition: margin-left 0.2s @time-func;
+  }
+
+  .sub-menu {
+    opacity: 1;
+    transition: height 0.2s @time-func, visibility 0.2s @time-func;
+  }
+
+  .layout-min {
+    @time-func-out: ease-out; //-in-out;
+
+    .body-left {
+      width: 60px;
+      transition: width 0.2s @time-func-out;
+
+      .collapse-arrow, .collapse-hidden {
+        opacity: 0;
+        transition: opacity 0.2s @time-func-out;
+      }
+
+      .slide-menu {
+        .sub-menu {
+          height: 0px;
+          opacity: 0;
+          transition: height 0.2s @time-func-out, opacity 0.2s @time-func-out, visibility 0.2s @time-func-out;
+        }
+      }
+
+    }
+
+    .body-right {
+      margin-left: 60px;
+      transition: margin-left 0.2s @time-func-out;
+    }
+  }
+
+
+  @import 'navbar';
+  @import 'slide-menu';
+
+  main {
+    display: block;
+    margin: 16px;
+    background-color: #FFFFFF;
+
+  }
+
+
+}
+
+.content {
+  height: calc(100vh - 40px);
+  overflow-y: scroll;
+}
+
+@import 'popover';

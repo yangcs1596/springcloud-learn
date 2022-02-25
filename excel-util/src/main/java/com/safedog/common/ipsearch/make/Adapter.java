@@ -4,7 +4,6 @@ import com.safedog.common.ipsearch.model.IPSearchConstant;
 import com.safedog.common.ipsearch.utils.ByteUtil;
 import lombok.extern.slf4j.Slf4j;
 
-import java.io.*;
 import java.util.Objects;
 import java.util.TreeMap;
 

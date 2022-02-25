@@ -1,0 +1,44 @@
+.menu-left {
+  background-color: @bg;
+  padding-top: 12px;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+  height: calc(100vh - 40px);
+  overflow: hidden;
+  margin: 0rem;
+}
+
+.slide-menu {
+
+  .nav-item {
+    border-left: @bg 2px solid;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    color: @m-link-txt;
+    width: 100%;
+
+    .nav-link:hover, .nav-link:focus {
+      border-left: @m-link-active 2px solid;
+      background-color: @m-link-hover;
+      color: @m-link-txt-hover;
+    }
+
+    .nav-link:visited {
+      color: @m-link-txt;
+    }
+
+    .nav-link.active,
+    .nav-link:active {
+      background-color: @m-link-active;
+      color: @m-link-txt-active;
+      border-right: @m-link-active-border 3px solid;
+    }
+
+    .nav-link.disabled {
+      color: @txt-disabled;
+    }
+
+    .nav-link .collapse-hidden {
+      padding-left: 0.75rem;
+    }
+  }
+}

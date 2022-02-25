@@ -2,7 +2,6 @@ package com.safedog.cloudnet.controller;
 
 import com.safedog.cloudnet.dispose.model.ResultBody;
 import com.safedog.common.redis.utils.RedisUtils;
-import com.safedog.common.util.IpUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
@@ -68,6 +67,6 @@ public class TestController {
         log.info("这是info日志。。。");
         log.warn("这是warm日志。。。");
         log.error("这是error日志。。。");
-        return IpUtils.getIpAddress(request);
+        return "\"\"";
     }
 }

@@ -1,0 +1,74 @@
+.menu-left {
+  background-color: @m-bg;
+  padding-top: 12px;
+  height: 100%;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
+.slide-menu {
+  background-color: @m-bg !important;
+
+  .sub-menu {
+    background-color: @bg-2nd !important;
+    color: @m-link-txt;
+  }
+
+  .nav-item,
+  .sub-menu .nav-item {
+    color: @m-link-txt;
+    border-radius: 0;
+    width: 100%;
+  }
+
+  .nav-link,
+  .sub-menu .nav-link {
+    color: @m-link-txt;
+    border-radius: 0;
+  }
+
+  a.nav-link:hover,
+  .sub-menu a.nav-link:hover {
+    background-color: @m-link-hover;
+    border-radius: 0;
+    color: @m-link-txt-hover;
+  }
+
+
+  a.nav-link.collapse-button:hover {
+    color: @m-link-txt-hover;
+    background-color: @m-bg;
+  }
+
+  .nav-link:visited,
+  .sub-menu .nav-link:visited {
+    background-color: @m-link-hover;
+    color: @m-link-txt;
+  }
+
+  .collapse-button:visited {
+    background-color: @m-bg;
+  }
+
+  .nav-link.not-collapsed, .nav-link.not-collapsed:visited {
+    background-color: @m-bg;
+    color: @txt-menu-expend;
+  }
+
+  a.nav-link.active,
+  .sub-menu a.nav-link.active {
+    background-color: @m-link-active;
+    color: @m-link-txt;
+    border-right: @m-link-active-border 3px solid;
+  }
+
+  .nav-link .disabled,
+  .sub-menu .nav-link .disabled {
+    color: @txt-disabled;
+  }
+
+  .nav-link .collapse-hidden,
+  .sub-menu .nav-link .collapse-hidden {
+    padding-left: 0.5rem;
+  }
+
+}

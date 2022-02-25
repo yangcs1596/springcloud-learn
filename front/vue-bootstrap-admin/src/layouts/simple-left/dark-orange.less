@@ -1,0 +1,54 @@
+//dark Dodger
+
+//基色
+@bg-base: #202020;
+@txt-base: #ffffff;
+
+//navbar 基色
+//DodgerBlue	道奇蓝	#1E90FF	30,144,255
+//#007bff
+@nb-bg-base: dodgerblue;//#0099FF;
+@nb-txt-base: @txt-base;
+@nb-bg-nv-base: @nb-bg-base;
+
+//左侧菜单基色
+@m-bg: @bg-base;
+@m-txt-base: @txt-base;
+@m-link-var-base: #004477;
+
+//背景变化色
+@bg: @bg-base;
+@bg-2nd: lighten(@bg-base, 3%);
+@bg-3nd: lighten(@bg-base, 6%);
+
+//文本变化色
+@txt: @txt-base;
+@txt-2nd: darken(@txt-base, 10%);
+@txt-3rd: darken(@txt-base, 20%);
+@txt-4th: darken(@txt-base, 30%);
+@txt-5th: darken(@txt-base, 40%);
+@txt-disabled: lighten(@bg-base, 20%);
+
+//top navbar变化色
+@nb-bg: @nb-bg-base;
+@nb-bg-1st: lighten(@nb-bg-base, 3%);
+@nb-bg-2nd: lighten(@nb-bg-base, 6%);
+@nb-bg-border: @txt-base;
+
+@nb-txt: @nb-txt-base;
+@nb-txt-hover: darken(@nb-txt-base, 10%);
+@nb-bg-logo: @nb-bg;
+@nb-bg-nv: @nb-bg-nv-base;
+@nb-bg-nv-1st: lighten(@nb-bg-nv, 10%);
+@nb-bg-nv-2nd: lighten(@nb-bg-nv, 20%);
+
+//左侧菜单变化色
+@m-link-hover: lighten(@bg-base, 3%);
+@m-link-active: @m-link-var-base;
+@m-link-active-border: DodgerBlue;
+@m-link-txt: @m-txt-base;
+@m-link-txt-hover: darken(@m-txt-base, 30%);
+@m-link-txt-active: darken(@m-txt-base, 0%);
+
+
+@import "base";

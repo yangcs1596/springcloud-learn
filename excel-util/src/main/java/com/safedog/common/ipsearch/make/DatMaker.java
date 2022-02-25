@@ -8,10 +8,8 @@ import com.safedog.common.ipsearch.utils.ByteUtil;
 import com.safedog.common.ipsearch.utils.GZipUtils;
 import lombok.extern.slf4j.Slf4j;
 
-import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
-import java.util.*;
 
 /**
  * dbFile maker
