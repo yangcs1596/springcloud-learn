@@ -3,7 +3,10 @@ package com.safedog.common.util;
 import org.ini4j.Config;
 import org.ini4j.Ini;
 import org.ini4j.Profile;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 
+import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringWriter;
@@ -47,5 +50,11 @@ public final class IniConfigFileUtil {
         StringWriter writer = new StringWriter();
         ini.store(writer);
         return writer.toString().replaceAll(" = ", "=");
+    }
+
+    public String updateDocument(InputStream in) throws Exception {
+        Document document = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(in);
+        Element root = document.getDocumentElement();
+        return null;
     }
 }

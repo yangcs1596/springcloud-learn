@@ -8,7 +8,7 @@ import com.google.common.collect.Table;
 import com.safedog.cloudnet.entity.mysql.SysUser;
 import com.safedog.cloudnet.model.TestModel;
 import com.safedog.common.util.CornUtil;
-import com.safedog.common.util.IniConfigFileUtil;
+import com.safedog.common.util.VersionUtil;
 import com.safedog.common.util.ZLibUtil;
 import com.safedog.common.util.column.MyColumnUtil;
 import com.safedog.common.util.date.CompletionDateUtils;
@@ -158,16 +158,24 @@ public class NotRunTest {
 //        } catch (IOException e) {
 //
 //        }
+        /**
+         * 输出字符的base64
+         */
         System.out.println(Base64.encodeBase64String("admin:1qaz@WSX".getBytes()));
         System.out.println(Base64.encodeBase64String("root:root".getBytes()));
-        System.out.println(103/100);
 
-        try(FileInputStream in = new FileInputStream("C:\\Users\\ASUS\\Desktop\\aaa")) {
-            IniConfigFileUtil.updateFile(in, "FileMonit", "1");
-        } catch (Exception e) {
-            log.info("");
-        }
+        /***
+         * 写入ini文件
+         */
+//        try(FileInputStream in = new FileInputStream("C:\\Users\\ASUS\\Desktop\\aaa")) {
+//            IniConfigFileUtil.updateFile(in, "FileMonit", "1");
+//        } catch (Exception e) {
+//            log.info("");
+//        }
 
+        System.out.println(VersionUtil.compareVersion("1.2.31", "1.2.35"));
+        System.out.println(("a" + "b").hashCode());
+        System.out.println(LocalDateTime.now().minusMinutes(5));
 
     }
 

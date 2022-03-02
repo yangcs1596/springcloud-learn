@@ -26,7 +26,8 @@ public class FlowCodeTest {
                 })
                 .teacherModel(builder -> {
                     builder.teacherName("米开朗基德");
-                });
+                })
+                .excute();
 
     }
 

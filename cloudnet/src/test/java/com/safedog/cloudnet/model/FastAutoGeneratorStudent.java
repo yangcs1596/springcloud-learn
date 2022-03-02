@@ -1,7 +1,5 @@
 package com.safedog.cloudnet.model;
 
-import lombok.AllArgsConstructor;
-
 import java.util.function.Consumer;
 
 /**
@@ -9,11 +7,18 @@ import java.util.function.Consumer;
  * @description
  * @date 2022/2/18 15:16
  */
-@AllArgsConstructor
 public final class FastAutoGeneratorStudent {
     private final SchoolModel.SchoolModelBuilder schoolModelBuilder;
     private final ClassModel.ClassModelBuilder classModelBuilder;
     private final TeacherModel.TeacherModelBuilder teacherModelBuilder;
+
+    public FastAutoGeneratorStudent(SchoolModel.SchoolModelBuilder schoolModelBuilder,
+                                    ClassModel.ClassModelBuilder classModelBuilder,
+                                    TeacherModel.TeacherModelBuilder teacherModelBuilder) {
+        this.schoolModelBuilder = schoolModelBuilder;
+        this.classModelBuilder = classModelBuilder;
+        this.teacherModelBuilder = teacherModelBuilder;
+    }
 
     public static FastAutoGeneratorStudent create(String name){
         return new FastAutoGeneratorStudent(SchoolModel.builder(), ClassModel.builder(), TeacherModel.builder());
