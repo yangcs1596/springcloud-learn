@@ -66,11 +66,19 @@ public class NotRunTest {
 
     @Test
     public void testJsonIgnore() {
-        ;
         TestModel testModel = new TestModel();
         testModel.setAge(15);
         testModel.setName("张三");
         System.out.println(JSONObject.toJSONString(testModel));
+        String str ="a\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "b\n" +
+                "\n" +
+                "\n";
+        System.out.println(str.replaceAll("((\r\n)|\n)[\\s\t ]*(\\1)+", "$1").replaceAll("^((\r\n)|\n)", ""));
     }
 
     /**
