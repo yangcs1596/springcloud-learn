@@ -9,7 +9,7 @@ import java.util.*;
 
 /**
  * @author ycs
- * @description
+ * @description 执行远程linux命令，使用了ssh连接
  * @date 2021/10/13 11:12
  */
 @Slf4j
@@ -313,7 +313,7 @@ public class SftpUtil {
         //export RSYNC_PASSWORD="n:P57N.,\"\`4bYSHMO-#I*2cXai|:q@X^"  && rsync -rlptD -vih -a  --port 22873
         // --delete mybk@192.168.88.45::linshi/ubuntu /home/data/patch_library/centos;
 //        sftpUtil.execCommand("export RSYNC_PASSWORD=\"1\"  && rsync -rlptD -vih -a  --port 1  --delete 1@1::1");
-//        sftpUtil.execCommand("export RSYNC_PASSWORD=\"n:P57N.,\\\"\\`4bYSHMO-#I*2cXai|:q@X^\"  && rsync -rlptD -vih -a  --port 22873  --delete mybk@192.168.88.45::cpatch/win /home/data/win;");
+        sftpUtil.execCommand("export RSYNC_PASSWORD=\"n:P57N.,\\\"\\`4bYSHMO-#I*2cXai|:q@X^\"  && rsync -rlptD -vih -a  --port 22873  --delete mybk@192.168.88.45::cpatch/win /home/data/win;");
         sftpUtil.mkFile("/home/data/win");
         //退出
         sftpUtil.logout();

@@ -12,6 +12,7 @@ import com.safedog.common.util.VersionUtil;
 import com.safedog.common.util.ZLibUtil;
 import com.safedog.common.util.column.MyColumnUtil;
 import com.safedog.common.util.date.CompletionDateUtils;
+import com.safedog.common.util.sftp.CommandUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.lang3.StringUtils;
@@ -26,10 +27,7 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.TimeZone;
+import java.util.*;
 
 /**
  * @author ycs
@@ -70,15 +68,19 @@ public class NotRunTest {
         testModel.setAge(15);
         testModel.setName("张三");
         System.out.println(JSONObject.toJSONString(testModel));
-        String str ="a\n" +
-                "\n" +
-                "\n" +
-                "\n" +
-                "\n" +
-                "b\n" +
-                "\n" +
-                "\n";
-        System.out.println(str.replaceAll("((\r\n)|\n)[\\s\t ]*(\\1)+", "$1").replaceAll("^((\r\n)|\n)", ""));
+        System.out.println(System.getProperty("user.dir"));
+        /**
+         * 去除空行功能
+         */
+//        String str ="a\n" +
+//                "\n" +
+//                "\n" +
+//                "\n" +
+//                "\n" +
+//                "b\n" +
+//                "\n" +
+//                "\n";
+//        System.out.println(str.replaceAll("((\r\n)|\n)[\\s\t ]*(\\1)+", "$1").replaceAll("^((\r\n)|\n)", ""));
     }
 
     /**
@@ -185,6 +187,24 @@ public class NotRunTest {
         System.out.println(("a" + "b").hashCode());
         System.out.println(LocalDateTime.now().minusMinutes(5));
 
+    }
+
+    @Test
+    public void test_date(){
+        Calendar calendar = Calendar.getInstance();
+        int hour = calendar.get(Calendar.HOUR_OF_DAY);
+        calendar.setTime(new Date());
+        //前一天
+        calendar.add(Calendar.DAY_OF_MONTH, -1);
+        int behour = calendar.get(Calendar.HOUR_OF_DAY);
+        System.out.println(hour);
+        System.out.println(behour);
+        CommandUtil.run("C:\\Users\\ASUS\\Desktop\\新建文本文档.cmd");
+//        System.out.println(process);
+
+//        MoodEnum happy = MoodEnum.Happy;
+//        System.out.println(happy.name());
+//        System.out.println(happy.getMood());
     }
 
 }

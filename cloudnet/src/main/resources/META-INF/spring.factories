@@ -1,0 +1,5 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  
+# SpringApplicationRunListener
+org.springframework.boot.SpringApplicationRunListener=\
+  com.safedog.cloudnet.listener.MySpringApplicationRunListener\

@@ -31,9 +31,19 @@ public class CommonResponseAdvice implements ResponseBodyAdvice<Object> {
         this.globalDefaultProperties = globalDefaultProperties;
     }
 
+    /**
+     * 前端匹配拦截操作，定义自身业务相关的匹配规则
+     * 返回为true则进行下面的beforeBodyWirte操作
+     * @param methodParameter
+     * @param aClass
+     * @return
+     */
     @Override
     public boolean supports(MethodParameter methodParameter,
                             Class<? extends HttpMessageConverter<?>> aClass) {
+        // 如 拦截controller返回类型是EnctyptResponseMessage的方法
+        // methodParameter.getMethod().getReturnType() 方法返回类型
+//        methodParameter.getGenericParameterType().getTypeName() 方法返回类型名称
         return filter(methodParameter);
     }
 
