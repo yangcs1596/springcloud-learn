@@ -1,4 +1,4 @@
-package com.safedog.common.util;
+package com.safedog.common.util.encryptor;
 
 import org.apache.commons.codec.CharEncoding;
 import org.apache.commons.codec.binary.Base64;
@@ -57,7 +57,7 @@ public class AESUtil {
     }
 
     public static void main(String[] args) {
-        String encrypt = AESUtil.encrypt( "elastic", "safedogcloudeyes");
+        String encrypt = AESUtil.encrypt( "1", "safedogcloudeyes");
         System.out.println(encrypt);
         System.out.println("====================");
         String decrypt = AESUtil.decrypt(encrypt, "safedogcloudeyes");

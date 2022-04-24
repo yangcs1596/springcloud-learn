@@ -1,7 +1,5 @@
 package com.safedog.common.util.encryptor;
 
-import com.safedog.common.util.AESUtil;
-
 public class DefaultEncryptor implements StringEncryptor{
 
     private String key;

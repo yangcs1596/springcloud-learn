@@ -133,6 +133,9 @@ public class NotRunTest {
 
     }
 
+    /**
+     * 获取文件所在的位置，tomcat的位置
+     */
     @Test
     public void pathTest() {
         String classPath = NotRunTest.class.getClassLoader().getResource(File.separator).getPath();
@@ -205,6 +208,24 @@ public class NotRunTest {
 //        MoodEnum happy = MoodEnum.Happy;
 //        System.out.println(happy.name());
 //        System.out.println(happy.getMood());
+    }
+
+    @Test
+    public void test_cloud_delete(){
+        System.out.println(JSONObject.toJSONString(JSONObject.parseObject("{\n" +
+                "    \"riskLevelList\": [\n" +
+                "      -1\n" +
+                "    ],\n" +
+                "    \"osPatchList\": [\n" +
+                "      \"-1\"\n" +
+                "    ],\n" +
+                "    \"mdWarePatchList\": [\n" +
+                "      \"-1\"\n" +
+                "    ],\n" +
+                "    \"dbPatchList\": [\n" +
+                "      \"-1\"\n" +
+                "    ]\n" +
+                "  }")));
     }
 
 }

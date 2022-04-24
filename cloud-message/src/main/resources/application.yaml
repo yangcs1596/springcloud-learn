@@ -1,0 +1,19 @@
+server:
+  port: 8082
+  servlet:
+    encoding:
+      charset: UTF-8
+  compression:
+    enabled: true
+    min-response-size: 1024
+spring:
+  application:
+    name: cloud-message
+  freemarker:
+    suffix: .html
+    enabled: true
+    #关闭缓存，及时刷新，上线生产环境需要修改为true
+    cache: false
+    tempalte-loader-path: classpath:/templates
+    settings:
+      template_update_delay: 0
