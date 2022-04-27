@@ -11,6 +11,7 @@ import com.safedog.common.util.CornUtil;
 import com.safedog.common.util.VersionUtil;
 import com.safedog.common.util.ZLibUtil;
 import com.safedog.common.util.column.MyColumnUtil;
+import com.safedog.common.util.column.MyColumnUtil2;
 import com.safedog.common.util.date.CompletionDateUtils;
 import com.safedog.common.util.sftp.CommandUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -157,7 +158,7 @@ public class NotRunTest {
         System.out.println(dayList);
 //        System.out.println(SerializedLambda.resolve().getImplMethodName());
 
-        System.out.println(MyColumnUtil.getFieldName(SysUser::getName).toUpperCase());
+        System.out.println(MyColumnUtil2.getFieldName(SysUser::getName));
 
         System.out.println(LocalDateTime.now().minusMinutes(5L));
     }
